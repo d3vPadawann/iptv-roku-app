@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="MainScene" extends="Scene">
+  <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
+
+  <children>
+    <!-- Fundo escuro -->
+    <Rectangle width="1920" height="1080" color="0x0b0f19FF" />
+
+    <!-- Barra Superior -->
+    <Rectangle width="1920" height="90" color="0x151c2cFF" />
+    <Label
+      text="Smart IPTV"
+      translation="[40, 26]"
+      font="font:LargeBoldSystemFont"
+      color="0x60a5faFF" />
+
+    <!-- Menu de Seções (Topbar) -->
+    <LabelList
+      id="sectionTabs"
+      translation="[330, 22]"
+      itemSize="[240, 50]"
+      numRows="1"
+      layoutDirection="horiz"
+      itemSpacing="[18, 0]"
+      color="0xf8fafcFF"
+      focusedColor="0x0b0f19FF" />
+
+    <!-- Status da Lista no Topo -->
+    <Label
+      id="playlistStatus"
+      text="Lista: Carregando..."
+      translation="[1420, 30]"
+      width="460"
+      horizAlign="right"
+      font="font:SmallestSystemFont"
+      color="0x94a3b8FF" />
+
+    <!-- Painel Lateral de Grupos -->
+    <Rectangle translation="[0, 90]" width="460" height="990" color="0x151c2cFF" />
+    <Label
+      id="groupHeader"
+      text="GRUPOS DE CANAIS"
+      translation="[30, 115]"
+      font="font:SmallBoldSystemFont"
+      color="0x94a3b8FF" />
+
+    <LabelList
+      id="categoryList"
+      translation="[25, 165]"
+      itemSize="[410, 62]"
+      itemSpacing="[0, 8]"
+      numRows="12"
+      color="0xf8fafcFF"
+      focusedColor="0x0b0f19FF" />
+
+    <!-- Área Principal (Canais / Filmes / Séries do Grupo) -->
+    <Label
+      id="itemsHeader"
+      text="Selecione um grupo"
+      translation="[500, 115]"
+      width="1380"
+      font="font:MediumBoldSystemFont"
+      color="0xe2e8f0FF" />
+
+    <PosterGrid
+      id="mediaGrid"
+      translation="[500, 175]"
+      basePosterSize="[310, 190]"
+      itemSpacing="[24, 28]"
+      numColumns="4"
+      numRows="4"
+      caption1NumLines="1" />
+
+    <!-- Player de Vídeo em Tela Cheia -->
+    <Video
+      id="videoPlayer"
+      width="1920"
+      height="1080"
+      visible="false" />
+  </children>
+</component>
