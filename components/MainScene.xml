@@ -3,69 +3,105 @@
   <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
 
   <children>
-    <!-- Fundo escuro -->
+    <!-- Fundo Principal -->
     <Rectangle width="1920" height="1080" color="0x0b0f19FF" />
 
-    <!-- Barra Superior -->
-    <Rectangle width="1920" height="90" color="0x151c2cFF" />
+    <!-- Fundo da Topbar -->
+    <Rectangle width="1920" height="92" color="0x151c2cFF" />
+    <Rectangle translation="[0, 92]" width="1920" height="2" color="0x263147FF" />
+
+    <!-- Título / Marca -->
     <Label
       text="Smart IPTV"
-      translation="[40, 26]"
+      translation="[36, 26]"
       font="font:LargeBoldSystemFont"
       color="0x60a5faFF" />
 
-    <!-- Menu de Seções (Topbar) -->
-    <LabelList
-      id="sectionTabs"
-      translation="[330, 22]"
-      itemSize="[240, 50]"
-      numRows="1"
+    <!-- TOPBAR HORIZONTAL (Abas + Lupa + Configurar Lista) -->
+    <LayoutGroup
+      id="topBarGroup"
+      translation="[300, 18]"
       layoutDirection="horiz"
-      itemSpacing="[18, 0]"
-      color="0xf8fafcFF"
-      focusedColor="0x0b0f19FF" />
+      itemSpacings="[14]">
 
-    <!-- Status da Lista no Topo -->
+      <!-- Aba 0: Canais ao Vivo -->
+      <Group id="tabGroup0">
+        <Rectangle id="tabBg0" width="230" height="56" color="0x3b82f6FF" />
+        <Label id="tabLbl0" text="Canais ao Vivo" width="230" height="56" horizAlign="center" vertAlign="center" font="font:SmallBoldSystemFont" />
+      </Group>
+
+      <!-- Aba 1: Filmes -->
+      <Group id="tabGroup1">
+        <Rectangle id="tabBg1" width="150" height="56" color="0x1e293bFF" />
+        <Label id="tabLbl1" text="Filmes" width="150" height="56" horizAlign="center" vertAlign="center" font="font:SmallBoldSystemFont" />
+      </Group>
+
+      <!-- Aba 2: Séries -->
+      <Group id="tabGroup2">
+        <Rectangle id="tabBg2" width="150" height="56" color="0x1e293bFF" />
+        <Label id="tabLbl2" text="Séries" width="150" height="56" horizAlign="center" vertAlign="center" font="font:SmallBoldSystemFont" />
+      </Group>
+
+      <!-- Aba 3: Documentários -->
+      <Group id="tabGroup3">
+        <Rectangle id="tabBg3" width="230" height="56" color="0x1e293bFF" />
+        <Label id="tabLbl3" text="Documentários" width="230" height="56" horizAlign="center" vertAlign="center" font="font:SmallBoldSystemFont" />
+      </Group>
+
+      <!-- Aba 4: Botão de Lupa (Pesquisa sob demanda) -->
+      <Group id="tabGroup4">
+        <Rectangle id="tabBg4" width="76" height="56" color="0x1e293bFF" />
+        <Label id="tabLbl4" text="🔍" width="76" height="56" horizAlign="center" vertAlign="center" font="font:MediumBoldSystemFont" />
+      </Group>
+
+      <!-- Aba 5: Configurar Lista Xtream -->
+      <Group id="tabGroup5">
+        <Rectangle id="tabBg5" width="180" height="56" color="0x1e293bFF" />
+        <Label id="tabLbl5" text="Listas" width="180" height="56" horizAlign="center" vertAlign="center" font="font:SmallBoldSystemFont" />
+      </Group>
+    </LayoutGroup>
+
+    <!-- Status da Lista no Topo Direito -->
     <Label
       id="playlistStatus"
-      text="Lista: Carregando..."
-      translation="[1420, 30]"
-      width="460"
+      text="Carregando..."
+      translation="[1430, 32]"
+      width="455"
       horizAlign="right"
       font="font:SmallestSystemFont"
       color="0x94a3b8FF" />
 
-    <!-- Painel Lateral de Grupos -->
-    <Rectangle translation="[0, 90]" width="460" height="990" color="0x151c2cFF" />
+    <!-- Painel Lateral Esquerdo (Grupos) -->
+    <Rectangle translation="[0, 94]" width="450" height="986" color="0x151c2cFF" />
     <Label
       id="groupHeader"
       text="GRUPOS DE CANAIS"
-      translation="[30, 115]"
+      translation="[28, 114]"
       font="font:SmallBoldSystemFont"
       color="0x94a3b8FF" />
 
     <LabelList
       id="categoryList"
-      translation="[25, 165]"
-      itemSize="[410, 62]"
-      itemSpacing="[0, 8]"
-      numRows="12"
+      translation="[24, 162]"
+      itemSize="[402, 58]"
+      itemSpacing="[0, 10]"
+      numRows="13"
       color="0xf8fafcFF"
       focusedColor="0x0b0f19FF" />
 
-    <!-- Área Principal (Canais / Filmes / Séries do Grupo) -->
+    <!-- Área Principal Direita (Grade de Canais com 4 Colunas e Padding) -->
     <Label
       id="itemsHeader"
       text="Selecione um grupo"
-      translation="[500, 115]"
-      width="1380"
+      translation="[486, 114]"
+      width="1390"
       font="font:MediumBoldSystemFont"
       color="0xe2e8f0FF" />
 
     <PosterGrid
       id="mediaGrid"
-      translation="[500, 175]"
-      basePosterSize="[310, 190]"
+      translation="[486, 172]"
+      basePosterSize="[310, 185]"
       itemSpacing="[24, 28]"
       numColumns="4"
       numRows="4"
